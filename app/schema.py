@@ -3,7 +3,6 @@ from pydantic import BaseModel, Field
 T = TypeVar("T")
 
 class UserSchema(BaseModel):
-    id:Optional[int] = None
     username:Optional[str] = None
     password:Optional[str] = None
 

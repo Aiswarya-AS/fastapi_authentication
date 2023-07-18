@@ -18,3 +18,9 @@ def get_db():
 async def create_user(request:RequestUser, db:Session = Depends(get_db)):
     authentiation.create_user(db, user=request.parameter )
     return Response[str](status="Ok", code='200', message="User Created", result = None).dict(exclude_none=True)
+
+@router.post('/login')
+async def login_user(request:RequestUser, db:Session=Depends(get_db)):
+    authentiation.login(db, request.parameter)
+    return Response[str](status="Ok", code='200', message="User loginned", result = None).dict(exclude_none=True)
+    
